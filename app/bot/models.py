@@ -55,3 +55,13 @@ class ProfessionToUser(models.Model):
 
     class Meta:
         db_table = "admin_panel_profession_to_user"
+
+
+class Question(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    closed = models.BooleanField("Закрыт?")
+    create_date = models.DateTimeField("Дата создания", auto_now_add=True)
+    question = models.TextField("Вопрос")
+
+    class Meta:
+        db_table = "admin_panel_question"
