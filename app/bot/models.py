@@ -31,4 +31,4 @@ class User(models.Model):
     created_at = models.DateTimeField("Создан", auto_now_add=True)
 
     class Meta:
-        db_table = "admin_panel_user"
+        db_table = "admin_panel_botuser"
