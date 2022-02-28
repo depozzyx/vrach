@@ -62,6 +62,12 @@ class Question(models.Model):
     closed = models.BooleanField("Закрыт?")
     create_date = models.DateTimeField("Дата создания", auto_now_add=True)
     question = models.TextField("Вопрос")
+    profession = models.ForeignKey(
+        Profession,
+        on_delete=models.SET_NULL,
+        verbose_name="Направление вопроса",
+        null=True,
+    )
 
     class Meta:
         db_table = "admin_panel_question"
