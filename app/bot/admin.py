@@ -4,15 +4,15 @@ from . import models
 
 
 @admin.register(models.User)
-class UserAdmin:
+class UserAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(models.City)
-class CityAdmin:
+class CityAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(models.Profession)
-class ProfessionAdmin:
+class ProfessionAdmin(admin.ModelAdmin):
     pass
