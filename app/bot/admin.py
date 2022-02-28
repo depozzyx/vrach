@@ -16,3 +16,8 @@ class CityAdmin(admin.ModelAdmin):
 @admin.register(models.Profession)
 class ProfessionAdmin(admin.ModelAdmin):
     list_display = ("profession_id", "profession_type", "title")
+
+
+@admin.register(models.ProfessionToUser)
+class ProfessionToUserAdmin(admin.ModelAdmin):
+    list_display = ("user", "profession")

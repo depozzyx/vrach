@@ -5,7 +5,7 @@ class Profession(models.Model):
     PROFESSIONS = (("med", "Медик"), ("pacient", "Пациент"))
 
     profession_id = models.AutoField("ID", primary_key=True)
-    title = models.CharField("Город", max_length=256)
+    title = models.CharField("Название", max_length=256)
     profession_type = models.CharField(
         "Тип проффесии", max_length=128, choices=PROFESSIONS
     )
@@ -32,8 +32,8 @@ class User(models.Model):
     user_id = models.IntegerField("User ID", primary_key=True)
     username = models.CharField("Юзернейм", null=True, blank=True, max_length=256)
     fullname = models.CharField("Имя", max_length=512)
-    profession = models.ForeignKey(
-        Profession, verbose_name="Профессия", on_delete=models.CASCADE, null=True
+    profession = models.CharField(
+        "Тип проффесии", max_length=128, choices=Profession.PROFESSIONS
     )
     city = models.ForeignKey(
         City, verbose_name="Город", on_delete=models.CASCADE, null=True
@@ -47,3 +47,8 @@ class User(models.Model):
 
     def __str__(self):
         return f"Пользователь({self.user_id} {self.fullname})"
+
+
+class ProfessionToUser(models.Model):
+    profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
