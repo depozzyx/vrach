@@ -4,6 +4,7 @@ from django.db import models
 class Profession(models.Model):
     PROFESSIONS = (("med", "Медик"), ("pacient", "Пациент"))
 
+    profession_id = models.AutoField("ID", primary_key=True)
     title = models.CharField("Город", max_length=256)
     profession_type = models.CharField(
         "Тип проффесии", max_length=128, choices=PROFESSIONS
@@ -14,6 +15,7 @@ class Profession(models.Model):
 
 
 class City(models.Model):
+    city_id = models.AutoField("ID", primary_key=True)
     title = models.CharField("Город", max_length=256)
 
     class Meta:
