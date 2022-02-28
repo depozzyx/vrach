@@ -33,4 +33,9 @@ class User(models.Model):
     created_at = models.DateTimeField("Создан", auto_now_add=True)
 
     class Meta:
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"
         db_table = "admin_panel_botuser"
+
+    def __str__(self):
+        return f"Пользователь({user_id} {fullname})"
