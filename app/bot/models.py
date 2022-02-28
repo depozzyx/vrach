@@ -36,7 +36,7 @@ class User(models.Model):
         Profession, verbose_name="Профессия", on_delete=models.CASCADE
     )
     city = models.ForeignKey(City, verbose_name="Город", on_delete=models.CASCADE)
-    created_at = models.DateTimeField("Создан", auto_now_add=True)
+    create_date = models.DateTimeField("Создан", auto_now_add=True)
 
     class Meta:
         verbose_name = "Пользователь"
