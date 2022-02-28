@@ -33,7 +33,7 @@ class User(models.Model):
     username = models.CharField("Юзернейм", null=True, blank=True, max_length=256)
     fullname = models.CharField("Имя", max_length=512)
     profession = models.CharField(
-        "Тип проффесии", max_length=128, choices=Profession.PROFESSIONS
+        "Тип проффесии", max_length=128, choices=Profession.PROFESSIONS, null=True
     )
     city = models.ForeignKey(
         City, verbose_name="Город", on_delete=models.CASCADE, null=True
