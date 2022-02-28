@@ -30,4 +30,4 @@ class QuestionAdmin(admin.ModelAdmin):
 
 @admin.register(models.ProfessionToQuestion)
 class ProfessionToQuestionAdmin(admin.ModelAdmin):
-    list_display = ("question", "user")
+    list_display = ("question", "profession")
