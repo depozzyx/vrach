@@ -27,7 +27,7 @@ class City(models.Model):
 
 
 class User(models.Model):
-    user_id = models.IntegerField("User ID", primary_key=True)
+    user_id = models.BigIntegerField("User ID", primary_key=True)
     username = models.CharField("Юзернейм", null=True, blank=True, max_length=256)
     fullname = models.CharField("Имя", max_length=512)
     profession = models.CharField(
@@ -60,6 +60,7 @@ class Question(models.Model):
     closed = models.BooleanField("Закрыт?")
     create_date = models.DateTimeField("Дата создания", auto_now_add=True)
     question = models.TextField("Вопрос")
+    response_count = models.SmallIntegerField("Число откликов")
 
     class Meta:
         db_table = "admin_panel_question"
@@ -71,3 +72,12 @@ class ProfessionToQuestion(models.Model):
 
     class Meta:
         db_table = "admin_panel_profession_to_question"
+
+
+class ChatToQuestion(models.Model):
+    chat_id = models.BigIntegerField("Chat ID")
+    message_id = models.BigIntegerField("Message ID")
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "admin_panel_chat_to_question"
