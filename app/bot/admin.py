@@ -15,4 +15,4 @@ class CityAdmin(admin.ModelAdmin):
 
 @admin.register(models.Profession)
 class ProfessionAdmin(admin.ModelAdmin):
-    list_display = ("city_id", "profession_type", "title")
+    list_display = ("profession_id", "profession_type", "title")

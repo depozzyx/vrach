@@ -38,4 +38,4 @@ class User(models.Model):
         db_table = "admin_panel_botuser"
 
     def __str__(self):
-        return f"Пользователь({user_id} {fullname})"
+        return f"Пользователь({self.user_id} {self.fullname})"
