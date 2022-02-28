@@ -13,6 +13,9 @@ class Profession(models.Model):
     class Meta:
         db_table = "admin_panel_profession"
 
+    def __str__(self):
+        return f"Проффесия({self.profession_id} {self.title})"
+
 
 class City(models.Model):
     city_id = models.AutoField("ID", primary_key=True)
@@ -20,6 +23,9 @@ class City(models.Model):
 
     class Meta:
         db_table = "admin_panel_city"
+
+    def __str__(self):
+        return f"Город({self.city_id} {self.title})"
 
 
 class User(models.Model):
