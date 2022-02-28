@@ -65,7 +65,7 @@ class Question(models.Model):
         db_table = "admin_panel_question"
 
 
-class ProfessionToQuestion:
+class ProfessionToQuestion(models.Model):
     profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
