@@ -52,3 +52,6 @@ class User(models.Model):
 class ProfessionToUser(models.Model):
     profession = models.ForeignKey(Profession, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "admin_panel_profession_to_user"
