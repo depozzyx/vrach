@@ -26,3 +26,8 @@ class ProfessionToUserAdmin(admin.ModelAdmin):
 @admin.register(models.Question)
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ("question", "user")
+
+
+@admin.register(models.ProfessionToQuestion)
+class ProfessionToQuestionAdmin(admin.ModelAdmin):
+    list_display = ("question", "user")
