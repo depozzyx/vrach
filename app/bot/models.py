@@ -6,6 +6,7 @@ class Profession(models.Model):
 
     profession_id = models.CharField("ID", primary_key=True, max_length=64)
     title = models.CharField("Название", max_length=256)
+    position = models.IntegerField("Позиция", null=True, default=0)
 
     class Meta:
         db_table = "admin_panel_profession"
