@@ -33,9 +33,11 @@ class User(models.Model):
     username = models.CharField("Юзернейм", null=True, blank=True, max_length=256)
     fullname = models.CharField("Имя", max_length=512)
     profession = models.ForeignKey(
-        Profession, verbose_name="Профессия", on_delete=models.CASCADE
+        Profession, verbose_name="Профессия", on_delete=models.CASCADE, null=True
     )
-    city = models.ForeignKey(City, verbose_name="Город", on_delete=models.CASCADE)
+    city = models.ForeignKey(
+        City, verbose_name="Город", on_delete=models.CASCADE, null=True
+    )
     create_date = models.DateTimeField("Создан", auto_now_add=True)
 
     class Meta:
