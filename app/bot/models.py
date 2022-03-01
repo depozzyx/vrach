@@ -56,11 +56,14 @@ class ProfessionToUser(models.Model):
 
 
 class Question(models.Model):
+    AGES = (("child", "Ребенок"), ("adult", "Взрослый"), ("both", "Обидва"))
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     closed = models.BooleanField("Закрыт?")
     create_date = models.DateTimeField("Дата создания", auto_now_add=True)
     question = models.TextField("Вопрос")
     response_count = models.SmallIntegerField("Число откликов")
+    age = models.CharField("Возраст", choices=AGES, max_length=64, null=True)
+    last_notification_sent_at = models.DateTimeField("Последняя 30минутная напоминалка")
 
     class Meta:
         db_table = "admin_panel_question"
