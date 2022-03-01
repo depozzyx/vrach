@@ -64,6 +64,7 @@ class Question(models.Model):
     response_count = models.SmallIntegerField("Число откликов")
     age = models.CharField("Возраст", choices=AGES, max_length=64, null=True)
     last_notification_sent_at = models.DateTimeField("Последняя 30минутная напоминалка")
+    closed_at = models.DateTimeField("Закрыт в", null=True, blank=True)
 
     class Meta:
         db_table = "admin_panel_question"
