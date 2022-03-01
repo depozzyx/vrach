@@ -6,7 +6,7 @@ from . import models
 @admin.register(models.User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ("user_id", "fullname", "city", "profession", "professions")
-    list_filter = "profession"
+    list_filter = ("profession",)
 
     def professions(self, obj: models.User):
         professions_to_users = models.ProfessionToUser.objects.filter(
