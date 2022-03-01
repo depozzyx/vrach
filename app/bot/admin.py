@@ -5,7 +5,18 @@ from . import models
 
 @admin.register(models.User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ("user_id", "fullname", "city", "profession")
+    list_display = ("user_id", "fullname", "city", "profession", "professions")
+    list_filter = "profession"
+
+    def professions(self, obj: models.User):
+        professions_to_users = models.ProfessionToUser.objects.filter(
+            user_id=obj.user_id
+        )
+        titles = [
+            models.Profession.objects.get(profession_id=p.profession_id).title
+            for p in professions_to_users
+        ]
+        return ", ".join(titles)
 
 
 @admin.register(models.City)
